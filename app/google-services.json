@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "401420168031",
+    "firebase_url": "https://m-comic-b287f.firebaseio.com",
+    "project_id": "m-comic-b287f",
+    "storage_bucket": "m-comic-b287f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401420168031:android:eb3a87158d70e50bbf64ea",
+        "android_client_info": {
+          "package_name": "com.example.m_comic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401420168031-njd8it00o0sibi2licmct4mds47s547a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.m_comic",
+            "certificate_hash": "537fdb328b6dee0ac90d2918c8381fbcc39634e8"
+          }
+        },
+        {
+          "client_id": "401420168031-3ad8qm02km1vchs9puc4le6188ba8m5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY2ynlTZTbCXzAeMuGFNrIF9YKE0IANl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401420168031-3ad8qm02km1vchs9puc4le6188ba8m5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
