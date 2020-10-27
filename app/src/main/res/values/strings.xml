@@ -5,8 +5,29 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_up_short">Sign up</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+
+    <!-- Login Activity -->
+    <string name="emailFilled">Email must be filled</string>
+    <string name="emailFormat">Email must be in email format</string>
+    <string name="passFilled">Password must be filled</string>
+    <string name="invalidCredential">Invalid Credential</string>
+    <string name="don_t_have_account_yet">Don\'t have account yet?</string>
+    <string name="register_now">Register now!</string>
+
+    <!-- Register Activity -->
+    <string name="create_your_account">Create your\naccount</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_re_password">Confirm password</string>
+    <string name="username_failed">Username must less than 10 characters</string>
+    <string name="username_filled">Username must be filled</string>
+    <string name="password_failed">Password must at least 5 characters</string>
+    <string name="re_pass_failed">Confirm password must be same with password</string>
+    <string name="sign_up_error">Invalid Credential</string>
+
 </resources>
