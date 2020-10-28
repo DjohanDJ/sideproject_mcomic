@@ -5,8 +5,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SingletonFirebaseTool {
 
-    private FirebaseAuth myFirebaseAuth = null;
-    private FirebaseFirestore myFireStoreReference = null;
+    private FirebaseAuth myFirebaseAuth;
+    private FirebaseFirestore myFireStoreReference;
     private static SingletonFirebaseTool instance = null;
 
     private SingletonFirebaseTool() {
