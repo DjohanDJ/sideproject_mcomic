@@ -48,9 +48,8 @@ public class NavigationActivity extends AppCompatActivity {
                     break;
 
                 case R.id.nav_profile:
-                    selectedFragment = new ProfileFragment();
+                    selectedFragment = ProfileFragment.getInstance();
                     break;
-
             }
 
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerId, selectedFragment).commit();
