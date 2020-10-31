@@ -29,6 +29,7 @@ public class LandingActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (!currentUserId.equals("")) {
+                    LoginActivity.doFeedUserSession(currentUserId);
                     startActivity(new Intent(LandingActivity.this, NavigationActivity.class));
                 } else {
                     startActivity(new Intent(LandingActivity.this, LoginActivity.class));

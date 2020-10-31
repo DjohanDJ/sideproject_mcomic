@@ -29,8 +29,8 @@
         android:id="@+id/menuItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:translationZ="11dp"
         android:background="@color/black_transparent"
+        android:translationZ="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +64,7 @@
         android:gravity="center_horizontal">
 
         <TextView
+            android:id="@+id/usernameShow"
             android:layout_marginTop="60dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,6 +73,7 @@
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/roleShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -83,13 +85,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Edit Profile"
+            android:text="@string/edit_profile"
             android:textColor="@color/white"
             android:background="@drawable/primary_button_shape" />
 
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/avatarIcon"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
@@ -102,6 +105,29 @@
         app:layout_constraintTop_toTopOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/textNoneGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sorry_only_admin_that_can_have_materials"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/imageNoneGuest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.589" />
+
+    <ImageView
+        android:id="@+id/imageNoneGuest"
+        android:layout_width="220dp"
+        android:layout_height="240dp"
+        android:background="@drawable/sorry_guest"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.596" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

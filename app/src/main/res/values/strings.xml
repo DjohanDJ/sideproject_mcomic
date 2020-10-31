@@ -36,5 +36,14 @@
     <string name="upload">Upload</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
+    <string name="sorry_only_admin_that_can_have_materials">Sorry, only admin that can have materials</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="updateProfile">Update</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm new Password</string>
+    <string name="update_your_profile">Update your profile</string>
+
+    <!-- Edit Profile Activity -->
+    <string name="edit_success">Profile Updated!</string>
 
 </resources>

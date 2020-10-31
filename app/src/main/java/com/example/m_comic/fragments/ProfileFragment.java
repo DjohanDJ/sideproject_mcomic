@@ -13,9 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.m_comic.R;
+import com.example.m_comic.activities.EditProfileActivity;
 import com.example.m_comic.activities.LoginActivity;
+import com.example.m_comic.authentications.UserSession;
 
 import java.util.Objects;
 
@@ -27,6 +30,10 @@ public class ProfileFragment extends Fragment {
     private ConstraintLayout menuItem;
     private ImageView menuButton;
     private SharedPreferences sharedPreferences;
+    @SuppressLint("StaticFieldLeak")
+    private static TextView usernameText;
+    private TextView roleText, textGuest;
+    private ImageView avatarIcon, imageGuest;
 
     private ProfileFragment() {}
 
@@ -45,8 +52,19 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         doInitializeItems(view);
+        doUserFetcher();
         doButtonListener();
         return view;
+    }
+
+    private void doUserFetcher() {
+        usernameText.setText(UserSession.getCurrentUser().getUsername());
+        roleText.setText(UserSession.getCurrentUser().getRole());
+        if (UserSession.getCurrentUser().getRole().equals("Guest")) {
+            avatarIcon.setImageResource(R.drawable.guest_avatar);
+            imageGuest.setVisibility(View.VISIBLE);
+            textGuest.setVisibility(View.VISIBLE);
+        }
     }
 
     private void doButtonListener() {
@@ -56,6 +74,7 @@ public class ProfileFragment extends Fragment {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("user_userId", "");
                 editor.apply();
+                UserSession.setCurrentUser(null);
                 startActivity(new Intent(getContext(), LoginActivity.class));
                 Objects.requireNonNull(getActivity()).finish();
             }
@@ -75,7 +94,7 @@ public class ProfileFragment extends Fragment {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Prompt to edit profile page.
+                startActivity(new Intent(getActivity(), EditProfileActivity.class));
             }
         });
     }
@@ -85,8 +104,19 @@ public class ProfileFragment extends Fragment {
         menuButton = view.findViewById(R.id.menuBtn);
         menuItem = view.findViewById(R.id.menuItem);
         logoutButton = view.findViewById(R.id.logoutBtn);
+        usernameText = view.findViewById(R.id.usernameShow);
+        roleText = view.findViewById(R.id.roleShow);
+        avatarIcon = view.findViewById(R.id.avatarIcon);
+        imageGuest = view.findViewById(R.id.imageNoneGuest);
+        textGuest = view.findViewById(R.id.textNoneGuest);
         menuItem.setVisibility(View.GONE);
+        imageGuest.setVisibility(View.GONE);
+        textGuest.setVisibility(View.GONE);
         sharedPreferences = Objects.requireNonNull(this.getActivity()).getSharedPreferences("user", Context.MODE_PRIVATE);
+    }
+
+    public static void setUsernameText(String editText) {
+        usernameText.setText(editText);
     }
 
 }

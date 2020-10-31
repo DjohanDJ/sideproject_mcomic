@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.m_comic.R;
 import com.example.m_comic.authentications.SingletonFirebaseTool;
+import com.example.m_comic.authentications.UserSession;
 import com.example.m_comic.helpers.ValidationHelper;
 import com.example.m_comic.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -74,6 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                     } else {
                         String userId = Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getUser()).getUid();
                         User newUser = new User(username, userId, email, password, "Guest");
+                        UserSession.setCurrentUser(newUser);
                         SingletonFirebaseTool.getInstance().getMyFireStoreReference().collection("users").document(userId).set(newUser);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("user_userId", userId);

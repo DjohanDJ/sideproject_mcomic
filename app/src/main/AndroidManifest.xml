@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/main_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activities.NavigationActivity"></activity>
+        <activity android:name=".activities.EditProfileActivity"></activity>
+        <activity android:name=".activities.NavigationActivity" />
         <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.LoginActivity"></activity>
+        <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
