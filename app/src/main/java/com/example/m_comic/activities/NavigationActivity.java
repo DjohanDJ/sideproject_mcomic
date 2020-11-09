@@ -48,10 +48,12 @@ public class NavigationActivity extends AppCompatActivity {
                     break;
 
                 case R.id.nav_profile:
+                    ProfileFragment.getInstance().setSelectedUser(null);
                     selectedFragment = ProfileFragment.getInstance();
                     break;
             }
 
+            assert selectedFragment != null;
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerId, selectedFragment).commit();
 
             return true;

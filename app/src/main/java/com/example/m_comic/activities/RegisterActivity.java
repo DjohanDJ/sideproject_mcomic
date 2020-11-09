@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.m_comic.R;
+import com.example.m_comic.animations.LoadingAnimation;
 import com.example.m_comic.authentications.SingletonFirebaseTool;
 import com.example.m_comic.authentications.UserSession;
 import com.example.m_comic.helpers.ValidationHelper;
@@ -81,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                         editor.putString("user_userId", userId);
                         editor.apply();
                         startActivity(new Intent(RegisterActivity.this, NavigationActivity.class));
+                        LoadingAnimation.startLoading(RegisterActivity.this);
                         finish();
                     }
                 }

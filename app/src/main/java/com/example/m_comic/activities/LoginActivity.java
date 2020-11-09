@@ -1,7 +1,6 @@
 package com.example.m_comic.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -15,9 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.m_comic.R;
+import com.example.m_comic.animations.LoadingAnimation;
 import com.example.m_comic.authentications.SingletonFirebaseTool;
 import com.example.m_comic.authentications.UserSession;
-import com.example.m_comic.fragments.ProfileFragment;
 import com.example.m_comic.helpers.ValidationHelper;
 import com.example.m_comic.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,8 +24,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.Objects;
 
@@ -83,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("user_userId", Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getUser()).getUid());
                         editor.apply();
                         startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
+                        LoadingAnimation.startLoading(LoginActivity.this);
                         finish();
                     }
                 }

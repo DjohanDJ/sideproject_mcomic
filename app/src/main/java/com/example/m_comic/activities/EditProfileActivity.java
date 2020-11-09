@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.m_comic.R;
+import com.example.m_comic.animations.LoadingAnimation;
 import com.example.m_comic.authentications.SingletonFirebaseTool;
 import com.example.m_comic.authentications.UserSession;
 import com.example.m_comic.fragments.ProfileFragment;
@@ -66,6 +67,7 @@ public class EditProfileActivity extends AppCompatActivity {
             firebaseUser.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
+                    LoadingAnimation.startLoading(EditProfileActivity.this);
                     if (task.isSuccessful()) {
                         firebaseUser.updatePassword(password).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

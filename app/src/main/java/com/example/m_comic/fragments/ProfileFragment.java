@@ -19,6 +19,7 @@ import com.example.m_comic.R;
 import com.example.m_comic.activities.EditProfileActivity;
 import com.example.m_comic.activities.LoginActivity;
 import com.example.m_comic.authentications.UserSession;
+import com.example.m_comic.models.User;
 
 import java.util.Objects;
 
@@ -34,6 +35,7 @@ public class ProfileFragment extends Fragment {
     private static TextView usernameText;
     private TextView roleText, textGuest;
     private ImageView avatarIcon, imageGuest;
+    private User selectedUser = null;
 
     private ProfileFragment() {}
 
@@ -58,12 +60,21 @@ public class ProfileFragment extends Fragment {
     }
 
     private void doUserFetcher() {
-        usernameText.setText(UserSession.getCurrentUser().getUsername());
-        roleText.setText(UserSession.getCurrentUser().getRole());
-        if (UserSession.getCurrentUser().getRole().equals("Guest")) {
-            avatarIcon.setImageResource(R.drawable.guest_avatar);
-            imageGuest.setVisibility(View.VISIBLE);
-            textGuest.setVisibility(View.VISIBLE);
+        if (this.selectedUser == null) {
+            usernameText.setText(UserSession.getCurrentUser().getUsername());
+            roleText.setText(UserSession.getCurrentUser().getRole());
+            if (UserSession.getCurrentUser().getRole().equals("Guest")) {
+                avatarIcon.setImageResource(R.drawable.guest_avatar);
+                imageGuest.setVisibility(View.VISIBLE);
+                textGuest.setVisibility(View.VISIBLE);
+            }
+        } else {
+            usernameText.setText(selectedUser.getUsername());
+            roleText.setText(selectedUser.getRole());
+            avatarIcon.setImageResource(R.drawable.admin_avatar);
+            imageGuest.setVisibility(View.GONE);
+            textGuest.setVisibility(View.GONE);
+            editProfileButton.setVisibility(View.GONE);
         }
     }
 
@@ -117,6 +128,10 @@ public class ProfileFragment extends Fragment {
 
     public static void setUsernameText(String editText) {
         usernameText.setText(editText);
+    }
+
+    public void setSelectedUser(User selectedUser) {
+        this.selectedUser = selectedUser;
     }
 
 }
