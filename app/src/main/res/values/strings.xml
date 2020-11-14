@@ -49,5 +49,7 @@
     <string name="testing_text">Testing Text</string>
     <string name="djohan_effendy">Djohan Effendy</string>
     <string name="role_admin">Role Admin</string>
+    <string name="manage_user">Manage User</string>
+    <string name="upload_material">Upload Material</string>
 
 </resources>

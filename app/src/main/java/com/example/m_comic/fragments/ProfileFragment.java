@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.example.m_comic.R;
 import com.example.m_comic.activities.EditProfileActivity;
 import com.example.m_comic.activities.LoginActivity;
+import com.example.m_comic.activities.ManageUserActivity;
+import com.example.m_comic.activities.UploadMaterialActivity;
 import com.example.m_comic.authentications.UserSession;
 import com.example.m_comic.models.User;
 
@@ -27,7 +29,7 @@ public class ProfileFragment extends Fragment {
 
     @SuppressLint("StaticFieldLeak")
     public static ProfileFragment instance = null;
-    private Button editProfileButton, logoutButton;
+    private Button editProfileButton, logoutButton, manageUserButton, uploadMaterialButton;
     private ConstraintLayout menuItem;
     private ImageView menuButton;
     private SharedPreferences sharedPreferences;
@@ -67,6 +69,8 @@ public class ProfileFragment extends Fragment {
                 avatarIcon.setImageResource(R.drawable.guest_avatar);
                 imageGuest.setVisibility(View.VISIBLE);
                 textGuest.setVisibility(View.VISIBLE);
+                manageUserButton.setVisibility(View.GONE);
+                uploadMaterialButton.setVisibility(View.GONE);
             }
         } else {
             usernameText.setText(selectedUser.getUsername());
@@ -75,6 +79,7 @@ public class ProfileFragment extends Fragment {
             imageGuest.setVisibility(View.GONE);
             textGuest.setVisibility(View.GONE);
             editProfileButton.setVisibility(View.GONE);
+            menuButton.setVisibility(View.GONE);
         }
     }
 
@@ -108,6 +113,20 @@ public class ProfileFragment extends Fragment {
                 startActivity(new Intent(getActivity(), EditProfileActivity.class));
             }
         });
+        manageUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ManageUserActivity.class));
+                menuItem.setVisibility(View.GONE);
+            }
+        });
+        uploadMaterialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), UploadMaterialActivity.class));
+                menuItem.setVisibility(View.GONE);
+            }
+        });
     }
 
     private void doInitializeItems(View view) {
@@ -120,6 +139,8 @@ public class ProfileFragment extends Fragment {
         avatarIcon = view.findViewById(R.id.avatarIcon);
         imageGuest = view.findViewById(R.id.imageNoneGuest);
         textGuest = view.findViewById(R.id.textNoneGuest);
+        manageUserButton = view.findViewById(R.id.manageUserBtn);
+        uploadMaterialButton = view.findViewById(R.id.uploadMaterialBtn);
         menuItem.setVisibility(View.GONE);
         imageGuest.setVisibility(View.GONE);
         textGuest.setVisibility(View.GONE);

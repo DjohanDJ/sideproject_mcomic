@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> implements Filterable {
 
-    ArrayList<User> users, listUserFull;
-    Context ctx;
+    private ArrayList<User> users, listUserFull;
+    private Context ctx;
 
     public UserAdapter(Context ctx, ArrayList<User> users, ArrayList<User> listUserFull){
         this.ctx = ctx;

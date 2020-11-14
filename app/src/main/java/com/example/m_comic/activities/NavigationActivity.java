@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.m_comic.R;
+import com.example.m_comic.animations.LoadingAnimation;
 import com.example.m_comic.fragments.HomeFragment;
 import com.example.m_comic.fragments.ProfileFragment;
 import com.example.m_comic.fragments.SearchFragment;
 import com.example.m_comic.fragments.UploadFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class NavigationActivity extends AppCompatActivity {
 
@@ -27,6 +31,14 @@ public class NavigationActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationId);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerId, new HomeFragment()).commit();
+        LoadingAnimation.startLoading(NavigationActivity.this);
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                LoadingAnimation.getDialog().dismiss();
+            }
+        }, 2000);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {

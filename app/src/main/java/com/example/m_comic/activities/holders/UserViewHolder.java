@@ -14,12 +14,14 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     private TextView myText;
     private ImageView myImage;
     private CardView cardView;
+    private Button giveAccess;
 
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
         myText = itemView.findViewById(R.id.titleRow);
         myImage = itemView.findViewById(R.id.imageRow);
         cardView = itemView.findViewById(R.id.cardView);
+        giveAccess = itemView.findViewById(R.id.giveAccessBtn);
     }
 
     public TextView getMyText() {
@@ -33,4 +35,9 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     public CardView getCardView() {
         return cardView;
     }
+
+    public Button getGiveAccess() {
+        return giveAccess;
+    }
+
 }

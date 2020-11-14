@@ -9,6 +9,8 @@ import com.example.m_comic.R;
 
 public class LoadingAnimation {
 
+    private static AlertDialog dialog;
+
     @SuppressLint("InflateParams")
     public static void startLoading(Activity myActivity) {
         AlertDialog.Builder builder = new AlertDialog.Builder(myActivity);
@@ -17,8 +19,12 @@ public class LoadingAnimation {
         builder.setView(inflater.inflate(R.layout.animation_loading, null));
         builder.setCancelable(true);
 
-        AlertDialog dialog = builder.create();
+        dialog = builder.create();
         dialog.show();
+    }
+
+    public static AlertDialog getDialog() {
+        return  dialog;
     }
 
 }
