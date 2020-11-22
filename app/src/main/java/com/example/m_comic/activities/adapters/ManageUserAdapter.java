@@ -2,22 +2,17 @@ package com.example.m_comic.activities.adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.m_comic.R;
-import com.example.m_comic.activities.NavigationActivity;
 import com.example.m_comic.activities.holders.UserViewHolder;
 import com.example.m_comic.authentications.SingletonFirebaseTool;
 import com.example.m_comic.models.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 

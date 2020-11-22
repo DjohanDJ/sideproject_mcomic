@@ -5,8 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +25,18 @@ import com.example.m_comic.activities.EditProfileActivity;
 import com.example.m_comic.activities.LoginActivity;
 import com.example.m_comic.activities.ManageUserActivity;
 import com.example.m_comic.activities.UploadMaterialActivity;
+import com.example.m_comic.activities.adapters.ComicAdapter;
+import com.example.m_comic.activities.adapters.ComicProfileAdapter;
+import com.example.m_comic.authentications.SingletonFirebaseTool;
 import com.example.m_comic.authentications.UserSession;
+import com.example.m_comic.models.Comic;
 import com.example.m_comic.models.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
@@ -38,6 +52,9 @@ public class ProfileFragment extends Fragment {
     private TextView roleText, textGuest;
     private ImageView avatarIcon, imageGuest;
     private User selectedUser = null;
+    private ArrayList<Comic> selectedUserComics = null;
+    private ComicProfileAdapter comicProfileAdapter;
+    private RecyclerView recyclerView;
 
     private ProfileFragment() {}
 
@@ -56,12 +73,32 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         doInitializeItems(view);
-        doUserFetcher();
+        doUserFetcher(view);
         doButtonListener();
         return view;
     }
 
-    private void doUserFetcher() {
+    private void doGetComicData(final User user, final View view) {
+        SingletonFirebaseTool.getInstance().getMyFireStoreReference().collection("comics").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    selectedUserComics.clear();
+                    for (QueryDocumentSnapshot documentSnapshot : Objects.requireNonNull(task.getResult())) {
+                        Comic comic = documentSnapshot.toObject(Comic.class);
+                        if (comic.getUser_id().equals(user.getId())) {
+                            selectedUserComics.add(comic);
+                        }
+                    }
+                    comicProfileAdapter = new ComicProfileAdapter(view.getContext(), selectedUserComics);
+                    recyclerView.setAdapter(comicProfileAdapter);
+                    recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 3));
+                }
+            }
+        });
+    }
+
+    private void doUserFetcher(View view) {
         if (this.selectedUser == null) {
             usernameText.setText(UserSession.getCurrentUser().getUsername());
             roleText.setText(UserSession.getCurrentUser().getRole());
@@ -72,6 +109,7 @@ public class ProfileFragment extends Fragment {
                 manageUserButton.setVisibility(View.GONE);
                 uploadMaterialButton.setVisibility(View.GONE);
             }
+            doGetComicData(UserSession.getCurrentUser(), view);
         } else {
             usernameText.setText(selectedUser.getUsername());
             roleText.setText(selectedUser.getRole());
@@ -80,6 +118,7 @@ public class ProfileFragment extends Fragment {
             textGuest.setVisibility(View.GONE);
             editProfileButton.setVisibility(View.GONE);
             menuButton.setVisibility(View.GONE);
+            doGetComicData(selectedUser, view);
         }
     }
 
@@ -144,6 +183,8 @@ public class ProfileFragment extends Fragment {
         menuItem.setVisibility(View.GONE);
         imageGuest.setVisibility(View.GONE);
         textGuest.setVisibility(View.GONE);
+        selectedUserComics = new ArrayList<>();
+        recyclerView = view.findViewById(R.id.recViewProfileComic);
         sharedPreferences = Objects.requireNonNull(this.getActivity()).getSharedPreferences("user", Context.MODE_PRIVATE);
     }
 
