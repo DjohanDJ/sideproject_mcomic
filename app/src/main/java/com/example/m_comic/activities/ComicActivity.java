@@ -26,7 +26,12 @@ public class ComicActivity extends AppCompatActivity {
         ComicDetailAdapter comicDetailAdapter = new ComicDetailAdapter(ComicActivity.this, comicDetailsParsed);
         recyclerView.setAdapter(comicDetailAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ComicActivity.this));
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ComicDetailAdapter.stopPlayer();
     }
 
     private void doInitializeItems() {

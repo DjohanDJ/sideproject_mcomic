@@ -53,6 +53,6 @@
     <string name="upload_material">Upload Material</string>
     <string name="upload_now">Upload Now</string>
     <string name="sorry_guest_can_t_upload_material">Sorry, guest can\'t upload material</string>
-    <string name="testing_text">Testing Text</string>
+    <string name="cant_play_sound">This comic doesn\'t have sound.</string>
 
 </resources>
