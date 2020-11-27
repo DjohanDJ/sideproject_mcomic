@@ -160,7 +160,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recViewProfileComic"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:layout_gravity="center_horizontal"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"

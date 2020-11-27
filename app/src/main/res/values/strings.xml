@@ -45,7 +45,7 @@
 
     <!-- Edit Profile Activity -->
     <string name="edit_success">Profile Updated!</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
     <string name="testing_text">Testing Text</string>
     <string name="djohan_effendy">Djohan Effendy</string>
     <string name="role_admin">Role Admin</string>
@@ -53,6 +53,21 @@
     <string name="upload_material">Upload Material</string>
     <string name="upload_now">Upload Now</string>
     <string name="sorry_guest_can_t_upload_material">Sorry, guest can\'t upload material</string>
-    <string name="cant_play_sound">This comic doesn\'t have sound.</string>
+    <string name="cant_play_sound">This comic doesn\'t have sound</string>
+    <string name="comic_name">Comic name</string>
+    <string name="upload_your_comic">Upload your comic</string>
+    <string name="choose_file">Choose Image</string>
+    <string name="add_sound">Choose Sound</string>
+    <string name="add_comic">Add Comic</string>
+    <string name="comicNameFill">Comic name must be filled</string>
+    <string name="fillComicAdd">Comic image must be chosen</string>
+    <string name="uploadSuccess">Add Image Success</string>
+    <string name="uploadSoundSuccess">Add Sound Success</string>
+    <string name="uploadProgress">Please wait, still uploading…</string>
+    <string name="do_you_want_to_add_another_material_into_this_comic">Do you want to add another material into this comic ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="do_you_want_to_add_sound_to_this_material">Do you want to add sound to this material ?</string>
+    <string name="proceed">Proceed</string>
 
 </resources>

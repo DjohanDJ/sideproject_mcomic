@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         } else if (pass.trim().isEmpty()) {
             Toast.makeText(this, getResources().getString(R.string.passFilled), Toast.LENGTH_SHORT).show();
         } else {
+            LoadingAnimation.startLoading(LoginActivity.this);
             SingletonFirebaseTool.getInstance().getMyFirebaseAuth()
                     .signInWithEmailAndPassword(email, pass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -80,7 +81,6 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("user_userId", Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getUser()).getUid());
                         editor.apply();
                         startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
-                        LoadingAnimation.startLoading(LoginActivity.this);
                         finish();
                     }
                 }
