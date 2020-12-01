@@ -1,6 +1,5 @@
 package com.example.m_comic.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -17,7 +16,6 @@ import com.example.m_comic.R;
 import com.example.m_comic.activities.UploadMaterialActivity;
 import com.example.m_comic.authentications.UserSession;
 
-import java.util.Objects;
 
 public class UploadFragment extends Fragment {
 

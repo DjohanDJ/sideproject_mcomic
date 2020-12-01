@@ -9,12 +9,6 @@ public class Comic {
 
     public Comic() {}
 
-    public Comic(String id, String user_id, ArrayList<ComicDetail> comicDetails) {
-        this.id = id;
-        this.user_id = user_id;
-        this.comic_details = comicDetails;
-    }
-
     public String getUser_id() {
         return user_id;
     }

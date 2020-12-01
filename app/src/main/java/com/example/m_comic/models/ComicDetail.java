@@ -6,12 +6,6 @@ public class ComicDetail {
 
     public ComicDetail() {}
 
-    public ComicDetail(String name, String image, String sound) {
-        this.name = name;
-        this.image = image;
-        this.sound = sound;
-    }
-
     public String getName() {
         return name;
     }

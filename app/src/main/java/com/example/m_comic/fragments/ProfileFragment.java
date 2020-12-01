@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -25,7 +24,6 @@ import com.example.m_comic.activities.EditProfileActivity;
 import com.example.m_comic.activities.LoginActivity;
 import com.example.m_comic.activities.ManageUserActivity;
 import com.example.m_comic.activities.UploadMaterialActivity;
-import com.example.m_comic.activities.adapters.ComicAdapter;
 import com.example.m_comic.activities.adapters.ComicProfileAdapter;
 import com.example.m_comic.authentications.SingletonFirebaseTool;
 import com.example.m_comic.authentications.UserSession;

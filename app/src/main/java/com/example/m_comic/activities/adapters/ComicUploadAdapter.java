@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.m_comic.R;
-import com.example.m_comic.activities.holders.ComicProfileViewHolder;
 import com.example.m_comic.activities.holders.ComicUploadViewHolder;
 import com.example.m_comic.models.ComicDetail;
 

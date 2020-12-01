@@ -1,7 +1,6 @@
 package com.example.m_comic.activities.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.m_comic.R;
-import com.example.m_comic.activities.ComicActivity;
-import com.example.m_comic.activities.OtherUserActivity;
 import com.example.m_comic.activities.holders.ComicDetailViewHolder;
-import com.example.m_comic.activities.holders.ComicViewHolder;
-import com.example.m_comic.models.Comic;
 import com.example.m_comic.models.ComicDetail;
-import com.example.m_comic.models.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
