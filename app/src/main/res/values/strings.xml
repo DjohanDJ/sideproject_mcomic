@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">M-Comic</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login" translatable="false">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -31,10 +31,10 @@
     <string name="sign_up_error">Register Error</string>
 
     <!-- Navigation Activity -->
-    <string name="home">Home</string>
-    <string name="search">Search</string>
-    <string name="upload">Upload</string>
-    <string name="profile">Profile</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="search" translatable="false">Search</string>
+    <string name="upload" translatable="false">Upload</string>
+    <string name="profile" translatable="false">Profile</string>
     <string name="logout">Logout</string>
     <string name="sorry_only_admin_that_can_have_materials">Sorry, only admin that can have materials</string>
     <string name="edit_profile">Edit Profile</string>
@@ -46,8 +46,8 @@
     <!-- Edit Profile Activity -->
     <string name="edit_success">Profile Updated!</string>
     <string name="loading">Loading…</string>
-    <string name="testing_text">Testing Text</string>
-    <string name="djohan_effendy">Djohan Effendy</string>
+    <string name="testing_text" translatable="false">Testing Text</string>
+    <string name="djohan_effendy" translatable="false">Djohan Effendy</string>
     <string name="role_admin">Role Admin</string>
     <string name="manage_user">Manage User</string>
     <string name="upload_material">Upload Material</string>
