@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, getResources().getString(R.string.invalidCredential), Toast.LENGTH_SHORT).show();
+                        LoadingAnimation.getDialog().dismiss();
                     } else {
                         doFeedUserSession(Objects.requireNonNull(Objects.requireNonNull(task.getResult()).getUser()).getUid());
                         SharedPreferences.Editor editor = sharedPreferences.edit();
